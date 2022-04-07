@@ -209,7 +209,7 @@ namespace DInvoke.DynamicInvoke
                     processInformationLength = Marshal.SizeOf(PBI);
                     break;
                 default:
-                    throw new InvalidOperationException($"Invalid ProcessInfoClass: {processInfoClass}");
+                    throw new InvalidOperationException(string.Format("Invalid ProcessInfoClass: {0}", processInfoClass));
             }
 
             object[] funcargs =
@@ -231,7 +231,8 @@ namespace DInvoke.DynamicInvoke
 
         public static bool NtQueryInformationProcessWow64Information(IntPtr hProcess)
         {
-            Data.Native.NTSTATUS retValue = NtQueryInformationProcess(hProcess, Data.Native.PROCESSINFOCLASS.ProcessWow64Information, out IntPtr pProcInfo);
+            IntPtr pProcInfo;
+            Data.Native.NTSTATUS retValue = NtQueryInformationProcess(hProcess, Data.Native.PROCESSINFOCLASS.ProcessWow64Information, out pProcInfo);
             if (retValue != Data.Native.NTSTATUS.Success)
             {
                 throw new UnauthorizedAccessException("Access is denied.");
@@ -246,7 +247,8 @@ namespace DInvoke.DynamicInvoke
 
         public static Data.Native.PROCESS_BASIC_INFORMATION NtQueryInformationProcessBasicInformation(IntPtr hProcess)
         {
-            Data.Native.NTSTATUS retValue = NtQueryInformationProcess(hProcess, Data.Native.PROCESSINFOCLASS.ProcessBasicInformation, out IntPtr pProcInfo);
+            IntPtr pProcInfo;
+            Data.Native.NTSTATUS retValue = NtQueryInformationProcess(hProcess, Data.Native.PROCESSINFOCLASS.ProcessBasicInformation, out pProcInfo);
             if (retValue != Data.Native.NTSTATUS.Success)
             {
                 throw new UnauthorizedAccessException("Access is denied.");

@@ -182,8 +182,8 @@ namespace DInvoke.Data
 
         public static class User32
         {
-            public static int WH_KEYBOARD_LL { get; } = 13;
-            public static int WM_KEYDOWN { get; } = 0x0100;
+            public const int WH_KEYBOARD_LL = 13;
+            public const int WM_KEYDOWN = 0x0100;
 
             public delegate IntPtr HookProc(int nCode, IntPtr wParam, IntPtr lParam);
         }
