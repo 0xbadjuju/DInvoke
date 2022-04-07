@@ -71,7 +71,7 @@ namespace DInvoke.Data
             }
 
             [Flags]
-            public enum ProcessAccessFlags : UInt32
+            public enum ProcessAccessFlags : uint
             {
                 // https://msdn.microsoft.com/en-us/library/windows/desktop/ms684880%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
                 PROCESS_ALL_ACCESS = 0x001F0FFF,
@@ -91,7 +91,7 @@ namespace DInvoke.Data
             }
 
             [Flags]
-            public enum FileAccessFlags : UInt32
+            public enum FileAccessFlags : uint
             {
                 DELETE = 0x10000,
                 FILE_READ_DATA = 0x1,
@@ -109,7 +109,7 @@ namespace DInvoke.Data
             }
 
             [Flags]
-            public enum FileShareFlags : UInt32
+            public enum FileShareFlags : uint
             {
                 FILE_SHARE_NONE = 0x0,
                 FILE_SHARE_READ = 0x1,
@@ -118,7 +118,7 @@ namespace DInvoke.Data
             }
 
             [Flags]
-            public enum FileOpenFlags : UInt32
+            public enum FileOpenFlags : uint
             {
                 FILE_DIRECTORY_FILE = 0x1,
                 FILE_WRITE_THROUGH = 0x2,
@@ -229,7 +229,7 @@ namespace DInvoke.Data
                 public int sesi10_idle_time;
             }
 
-            public enum SID_NAME_USE : UInt16
+            public enum SID_NAME_USE : ushort
             {
                 SidTypeUser = 1,
                 SidTypeGroup = 2,
